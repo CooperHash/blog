@@ -8,3 +8,11 @@ export const NAV_BUTTON = {
     fontSize: '1.5rem',
     color: '#fff'
 }
+
+export const NAV_LIST = "w-50 h-full bg-gray-200"
+
+export const HEAD = 'w-full h-20 bg-gray-200 fixed'
+
+
+
+
