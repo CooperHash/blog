@@ -1,12 +1,12 @@
 import BaseButton from "./BaseButton"
 import classname from 'classname'
 import withLogClick from "../hoc/withLogClick"
-export default function Button() {
+export default function Button(props) {
     const ToButton = withLogClick(BaseButton)
     return (
         <div>
             <ToButton 
-                onClick={() => console.log("log click")}
+                onClick={props.onClick}
                 className={classname('coo-nav')}
             >
                 button

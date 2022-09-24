@@ -3,7 +3,7 @@ const withLogClick = (Component) => {
         const onClick = () => {
             props.onClick()
         }
-
+        
         return <Component {...props} onClick={onClick} className={props.className}/>
     }
 }
