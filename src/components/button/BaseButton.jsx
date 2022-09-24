@@ -1,8 +1,8 @@
-export default function BaseButton(props) {
+const BaseButton = ({ children, onClick, className }) => {
     return (
-        <div className={props.wrapclass}>
-            <div className={props.className}>{props.buttonName}</div>
-        </div>
-        // <div className="btn">button</div>
+        <div onClick={onClick} className={className}>{ children }</div>
     )
 }
+
+
+export default BaseButton

@@ -1,14 +1,16 @@
 import BaseButton from "./BaseButton"
 import classname from 'classname'
+import withLogClick from "../hoc/withLogClick"
 export default function Button() {
+    const ToButton = withLogClick(BaseButton)
     return (
         <div>
-            {/* <BaseButton
-                wrapclass={classname('')}
-                className={classname('p-32px font-medium text-xl text-light bg-blue-500')} 
-                buttonName={'button'}
-            /> */}
-            <div className='.coo-btn .coo-btn-blue w-20px h-20px font-medium text-xl text-light'>button</div>
+            <ToButton 
+                onClick={() => console.log("log click")}
+                className={classname('coo-nav')}
+            >
+                button
+            </ToButton>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import plugin from 'windicss/plugin'
 
 export default defineConfig({
   darkMode: 'class', // or 'media'
+  prefix: 'coo-',
   theme: {
     extend: {
       screens: {
@@ -45,11 +46,13 @@ export default defineConfig({
     }),
     plugin(({ addComponents }) => {
       const buttons = {
-        '.btn': {
-          padding: '.5rem 1rem',
+        '.nav': {
+          padding: '.6rem 1.1rem',
           borderRadius: '.25rem',
           fontWeight: '600',
-          backgroundColor: '#3490dc'
+          backgroundColor: '#3490dc',
+          fontSize: '1.5rem',
+          color: '#fff'
         },
         '.btn-blue': {
           'backgroundColor': '#3490dc',
