@@ -2,9 +2,10 @@ import { defineConfig } from 'windicss/helpers'
 import colors from 'windicss/colors'
 import plugin from 'windicss/plugin'
 
+import { NAV_BUTTON } from './src/styles/styles'
+
 export default defineConfig({
   darkMode: 'class', // or 'media'
-  prefix: 'coo-',
   theme: {
     extend: {
       screens: {
@@ -46,14 +47,7 @@ export default defineConfig({
     }),
     plugin(({ addComponents }) => {
       const buttons = {
-        '.nav': {
-          padding: '.6rem 1.1rem',
-          borderRadius: '.25rem',
-          fontWeight: '600',
-          backgroundColor: '#3490dc',
-          fontSize: '1.5rem',
-          color: '#fff'
-        },
+        '.nav': NAV_BUTTON,
         '.btn-blue': {
           'backgroundColor': '#3490dc',
           'color': '#3490dc',

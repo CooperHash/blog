@@ -6,10 +6,10 @@ export default function Button(props) {
     return (
         <div>
             <ToButton 
+                config={props.config}
                 onClick={props.onClick}
-                className={classname('coo-nav')}
+                className={classname('nav flex items-center text-center justify-center')}
             >
-                button
             </ToButton>
         </div>
     )
