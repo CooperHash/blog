@@ -8,13 +8,13 @@ export default defineConfig({
   darkMode: 'class', // or 'media'
   theme: {
     extend: {
-      screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
-      },
+      // screens: {
+      //   'sm': { max: '640px' },
+      //   'md': { min: '786px', max: '1024px' },
+      //   'lg': { min: '1024px', max: '1280px' },
+      //   'xl': { min: '1280px', max: '1536px' },
+      //   '2xl': { min: '1536px'},
+      // },
       colors: {
         blue: colors.sky,
         red: colors.rose,
@@ -30,6 +30,34 @@ export default defineConfig({
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      lineHeight: {
+        'video': '1.2',
+      },
+      width: {
+        bar: '90%'
+      },
+      borderRadius: {
+        none: '0',
+        sm: '0.125rem',
+        DEFAULT: '4px',
+        md: '0.375rem',
+        lg: '0.5rem',
+        full: '9999px',
+        large: '12px',
+        cycle: '50%'
+      },
+      keyframes: {
+        editor: {
+          '0%': { transform: 'translateX(-2em) ' },
+          '20%': { transform: 'translateX(-4em) ' },
+          '50%': { transform: 'translateX(-6em) ' },
+          '70%': { transform: 'translateX(-8em) ' },
+          '100%': { transform: 'translateX(-10em) ' },
+        },
+      },
+      animation: {
+        editor: 'editor 2s infinite',
       },
     },
   },

@@ -4,7 +4,7 @@ import store from "../store/configStore"
 import { click } from '@/store/actions/actions'
 export default function Test() {
     return (
-        <div className="absolute left-200px top-200px">
+        <div className="absolute left-200px top-200px z-88">
             <Button onClick={() => store.dispatch(click())}/>
         </div>
     )
