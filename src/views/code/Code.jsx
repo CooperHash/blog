@@ -1,4 +1,5 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
+import { useEffect } from "react";
 export default function Code() {
     return (
         <div>

@@ -9,9 +9,12 @@ import VideoDetail from './views/video/VideoDetail';
 import Editor from './components/markdown/Editor';
 import Login from './views/login/Login';
 import Code from './views/code/Code';
+import Talk from './views/talk/Talk';
+import TalkDetail from './views/talk/TalkDetail';
+import Picwall from './views/picwall/Picwall';
 export default function App() {
     return (
-        <div>
+        <div className='dark:text-light-100 dark:bg-dark-900'>
             <Header />
             <BrowserRouter>
                 <Routes>
@@ -25,6 +28,9 @@ export default function App() {
                     <Route path='/editor' element={<Editor/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/code' element={<Code/>}/>
+                    <Route path='/talk' element={<Talk/>}/>
+                    <Route path='/talk-detail' element={<TalkDetail/>}/>
+                    <Route path='/pic-wall' element={<Picwall/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

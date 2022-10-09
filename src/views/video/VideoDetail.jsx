@@ -18,7 +18,7 @@ export default function VideoDetail() {
             })
     }, [])
     return (
-        <div className="max-w-7xl mx-auto flex">
+        <div className="max-w-7xl mx-auto flex mt-10">
             <div className="">
                 <video
                     controls
@@ -27,7 +27,7 @@ export default function VideoDetail() {
                     height="534"
                 />
             </div>
-            <div className="flex flex-1 justify-end bg-blue-100">
+            <div className="flex flex-1 justify-end">
                 <div className="bg-gray-200 w-300px h-185px">
                     <div className="w-bar h-auto border-b-2 border-gray-300 mx-auto">
                         <div className="flex">

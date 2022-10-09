@@ -15,6 +15,10 @@ export default defineConfig({
       //   'xl': { min: '1280px', max: '1536px' },
       //   '2xl': { min: '1536px'},
       // },
+      lineClamp: {
+        sm: '8',
+        lg: '10',
+      },
       colors: {
         blue: colors.sky,
         red: colors.rose,
@@ -35,7 +39,9 @@ export default defineConfig({
         'video': '1.2',
       },
       width: {
-        bar: '90%'
+        all: '100%',
+        bar: '90%',
+        half: '50%'
       },
       borderRadius: {
         none: '0',
@@ -47,17 +53,22 @@ export default defineConfig({
         large: '12px',
         cycle: '50%'
       },
+      outline: {
+        no: '0px'
+      },
       keyframes: {
         editor: {
-          '0%': { transform: 'translateX(-2em) ' },
-          '20%': { transform: 'translateX(-4em) ' },
-          '50%': { transform: 'translateX(-6em) ' },
-          '70%': { transform: 'translateX(-8em) ' },
-          '100%': { transform: 'translateX(-10em) ' },
+          '0%, 100%': { transform: 'translateY(0em) ' },
+          '20%': { transform: 'translateY(0.5em) ' },
+          '30%': { transform: 'translateY(1em) ' },
+          '40%': { transform: 'translateY(0em) ' },
+          '50%': { transform: 'translateY(1em) ' },
+          '70%': { transform: 'translateY(0em) ' },
+          '90%': { transform: 'translateY(1em) ' },
         },
       },
       animation: {
-        editor: 'editor 2s infinite',
+        editor: 'editor 2s ease-in',
       },
     },
   },

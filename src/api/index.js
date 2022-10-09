@@ -68,8 +68,28 @@ export function login(user, pass) {
 export function getPerson(name) {
     return service({
         url: '/person/api/getPerson',
+        method: 'get',
         params: {
             name: name
+        }
+    })
+}
+
+
+export function getTalk() {
+    return service({
+        url: '/talk/api/getAllTalk',
+        method: 'get'
+    })
+}
+
+
+export function getSingleTalk(id) {
+    return service({
+        url: '/talk/api/getTalk',
+        method: 'get',
+        params: {
+            id: id
         }
     })
 }
