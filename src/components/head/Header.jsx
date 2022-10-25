@@ -1,10 +1,11 @@
 import store from "../../store/configStore"
 import { useEffect, useState } from "react"
+import {  AUTH_ENDPOINT, CLIENT_ID, REDIRECT_URI, RESPONSE_TYPE, STATE, SCOPE } from "../../utils/spotify"
 export default function Header() {
     const isLogin = localStorage.getItem('user')
     const [darkMode, setDarkMode] = useState(false)
     const setMode = () => {
-        if(darkMode) html.classList.remove('dark')
+        if (darkMode) html.classList.remove('dark')
         else html.classList.add('dark')
         darkMode ? setDarkMode(false) : setDarkMode(true)
     }
@@ -23,9 +24,8 @@ export default function Header() {
                         <a href="/article">规范</a>
                         <a href="/talk">耳语</a>
                         <a href="/video">视频</a>
-                        <div>
-                            <a href=""></a>
-                        </div>
+                        <a href="/code">代码</a>
+                        {/* <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=${RESPONSE_TYPE}`}>spotify</a> */}
                     </nav>
                     {!isLogin ?
                         <div className="items-center justify-end md:flex md:flex-1 lg:w-0">

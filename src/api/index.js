@@ -1,16 +1,20 @@
 import service from "./axios";
+const header = `Bearer ${localStorage.getItem('user')}`
 
 export function getArticle() {
     return service({
         url: '/blog/api/getArticle',
-        method: 'get'
+        method: 'get',
     })
 }
 
 export function getStandard() {
     return service({
         url: '/standard/api/getStandard',
-        method: 'get'
+        method: 'get',
+        headers: {
+            'Authorization': header
+        },
     })
 }
 
@@ -20,7 +24,10 @@ export function getSingleStandard(id) {
         method: 'get',
         params: {
             id: id
-        }
+        },
+        headers: {
+            'Authorization': header
+        },
     })
 }
 

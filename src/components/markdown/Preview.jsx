@@ -15,7 +15,7 @@ export default function Preview() {
             })
     }, [source])
     return (
-        <div className='max-w-7xl px-4 mx-auto mt-10'>
+        <div className='max-w-4xl px-4 mx-auto mt-10'>
             <div className='float-right'>
                 <a href='/editor'>
                     <svg className='hover:animate-editor' viewBox="0 0 20 20" width="50px" height="50px">

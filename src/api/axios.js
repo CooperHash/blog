@@ -5,9 +5,6 @@ const service = axios.create({
 })
 
 
-if(token) {
-    service.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('user')}`
-}
 
 
 export default service

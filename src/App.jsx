@@ -12,6 +12,7 @@ import Code from './views/code/Code';
 import Talk from './views/talk/Talk';
 import TalkDetail from './views/talk/TalkDetail';
 import Picwall from './views/picwall/Picwall';
+import Music from './views/music';
 export default function App() {
     return (
         <div className='dark:text-light-100 dark:bg-dark-900'>
@@ -31,6 +32,7 @@ export default function App() {
                     <Route path='/talk' element={<Talk/>}/>
                     <Route path='/talk-detail' element={<TalkDetail/>}/>
                     <Route path='/pic-wall' element={<Picwall/>}/>
+                    <Route path='/music' element={<Music/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
