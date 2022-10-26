@@ -1,19 +1,5 @@
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import { getSingleStandard } from '@/api/index'
-import { useEffect } from 'react';
-import { useState } from 'react';
-import store from '../../store/configStore';
-export default function Preview() {
-    const [source, setSource] = useState('')
-    useEffect(() => {
-        getSingleStandard(store.getState().id)
-            .then((res) => {
-                console.log(res.data.data[0]);
-                setSource(res.data.data[0].content)
-            }).catch((err) => {
-                console.log(err);
-            })
-    }, [source])
+export default function Preview(props) {
     return (
         <div className='max-w-4xl px-4 mx-auto mt-10'>
             <div className='float-right'>
@@ -23,7 +9,7 @@ export default function Preview() {
                     </svg>
                 </a>
             </div>
-            <MarkdownPreview source={source} />
+            <MarkdownPreview source={props.source} />
         </div>
     )
 }

@@ -100,3 +100,57 @@ export function getSingleTalk(id) {
         }
     })
 }
+
+
+export function getCode() {
+    return service({
+        url: '/code/api/getCode',
+        method: 'get'
+    })
+}
+
+export function getSingleCode(id) {
+    return service({
+        url: '/code/api/getSingleCode',
+        method: 'get',
+        params: {
+            id: id
+        }
+    })
+}
+
+
+export function saveTalk(name,content) {
+    return service({
+        url: '/talk/api/saveTalk',
+        method:'post',
+        data: {
+            name: name,
+            content: content
+        }
+    })
+}
+
+export function saveCode(code,info,tag) {
+    return service({
+        url: '/code/api/saveCode',
+        method: 'post',
+        data: {
+            code: code,
+            info: info,
+            tag: tag
+        }
+    })
+}
+
+
+export function updateCode(code,id) {
+    return service({
+        url: '/code/api/updateCode',
+        method: 'put',
+        data: {
+            code: code,
+            id: id
+        }
+    })
+}

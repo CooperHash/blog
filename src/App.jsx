@@ -13,6 +13,10 @@ import Talk from './views/talk/Talk';
 import TalkDetail from './views/talk/TalkDetail';
 import Picwall from './views/picwall/Picwall';
 import Music from './views/music';
+import ArticleDetail from './views/article/ArticleDetail';
+import CodeDetail from './views/code/CodeDetail';
+import CodeProblem from './views/code/CodeProblem';
+import Handler from './views/handler/handler';
 export default function App() {
     return (
         <div className='dark:text-light-100 dark:bg-dark-900'>
@@ -23,7 +27,7 @@ export default function App() {
                     <Route path="/navlist" element={<NavList />} />
                     <Route path="/card" element={<Card />} />
                     <Route path="/article" element={<Article />}/>
-                    <Route path='/article/:name' element={<Preview/>}/>
+                    <Route path='/article/:name' element={<ArticleDetail/>}/>
                     <Route path="/video" element={<Video/>}/>
                     <Route path='/videoDetail' element={<VideoDetail/>}/>
                     <Route path='/editor' element={<Editor/>}/>
@@ -33,6 +37,9 @@ export default function App() {
                     <Route path='/talk-detail' element={<TalkDetail/>}/>
                     <Route path='/pic-wall' element={<Picwall/>}/>
                     <Route path='/music' element={<Music/>}/>
+                    <Route path='/codeproblem' element={<CodeProblem/>}/>
+                    <Route path='/codeproblem/:id' element={<CodeDetail/>}/>
+                    <Route path='/secret' element={<Handler/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

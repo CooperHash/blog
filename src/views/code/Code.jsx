@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-// import './Code.css'
 import Editor from "@monaco-editor/react";
 import axios from "axios";
 import { Base64 } from "js-base64";
-import { REACT_APP_RAPID_API_HOST, REACT_APP_RAPID_API_KEY, REACT_APP_RAPID_API_URL } from "./const";
-import { testRegexr } from "windicss/utils";
+import {
+  REACT_APP_RAPID_API_HOST,
+  REACT_APP_RAPID_API_KEY,
+  REACT_APP_RAPID_API_URL
+} from "./const";
+import store from "../../store/configStore";
+import { updateCode } from "../../api";
 export default function Code() {
   const [language, setLanguage] = useState({
     id: 63,
@@ -12,16 +16,28 @@ export default function Code() {
     label: "JavaScript (Node.js 12.14.0)",
     value: "javascript",
   });
-  const [value, setValue] = useState(`js` || "");
+  const [info, setInfo] = useState("")
+  const [value, setValue] = useState("" || `js`);
   const [customInput, setCustomInput] = useState("");
-  const [code, setCode] = useState(`javascriptDefault`);
+  const [code, setCode] = useState("");
   const [output, SetOutPut] = useState("")
 
+  useEffect(() => {
+    const data = store.getState().code
+    console.log(data);
+    const str = data.code ? data.code : 'js'
+    console.log(str);
+    setValue(str)
+    setInfo(data.info)
+  }, [])
+
   const handleCompile = () => {
+    let source_code = ""
+    source_code = code ? code : value
     const formData = {
       language_id: language.id,
       // encode source code in base64
-      source_code: Base64.encode(code),
+      source_code: Base64.encode(source_code),
       stdin: Base64.decode(customInput),
     };
     const options = {
@@ -51,7 +67,6 @@ export default function Code() {
   };
 
 
-
   const checkStatus = async (token) => {
     const options = {
       method: "GET",
@@ -67,6 +82,10 @@ export default function Code() {
       let statusId = response.data.status?.id;
       console.log(response);
       // Processed - we have a result
+      if (statusId === 11) {
+        SetOutPut(Base64.encode('run time error'))
+        return
+      }
       if (statusId === 1 || statusId === 2) {
         // still processing
         setTimeout(() => {
@@ -101,19 +120,22 @@ export default function Code() {
     onChange("code", value);
   };
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     let span = document.getElementsByTagName('span')
-  //     for(let i of span) {
-  //       i.style.fontSize = '18px'
-  //     }
-  //   },400)
-  // })
+
+  const save = () => {
+    const id = store.getState().id
+    updateCode(value, id)
+      .then((res) => {
+        console.log(res);
+      })
+  }
 
 
   return (
-    <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
-      <div className="mt-8 w-1000px mx-auto flex flex-row">
+    <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl flex flex-row">
+      <p className="w-180px text-lg ml-20 mt-8 mr-20">
+        { info }
+      </p>
+      <div className="mt-8 w-1000px  flex flex-row">
         <div className="w-full">
           <Editor
             height="80vh"
@@ -128,12 +150,13 @@ export default function Code() {
             onChange={handleEditorChange}
           />
         </div>
-        <div className="w-200px flex flex-col mx-auto h-90vh bg-gray-50">
+        <div className="w-200px flex flex-col mx-auto h-80vh bg-gray-50">
           <div className="flex w-200px h-80px flex-col">
             <button className="w-80px bg-blue-600 rounded-md text-stroke-${var}" onClick={() => handleCompile()}>compile</button>
             <button className="bg-blue-600 w-80px h-30px mt-2 rounded-md" onClick={() => handleCompile()}>reset</button>
+            <button className="bg-blue-600 w-80px h-30px mt-2 rounded-md" onClick={save}>save</button>
           </div>
-          <div className="flex-1 px-2 overflow-hidden">
+          <div className="flex-1 px-2 overflow-hidden mt-2">
             {output && <div className="whitespace-pre-wrap text-lg">{`> ${Base64.decode(output)}`
             }</div>}
           </div>

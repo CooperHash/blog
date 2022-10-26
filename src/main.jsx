@@ -15,7 +15,7 @@ import App from './App'
 const persistor = persistStore(store)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <div>
     {/* <Provider store={store}>
       <RouterProvider router={router}>
         <PersistGate loading={null} persistor={persistor}>
@@ -24,9 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider> */}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App/>
+        <App />
       </PersistGate>
     </Provider>
-
-  </React.StrictMode>
+  </div>
 )

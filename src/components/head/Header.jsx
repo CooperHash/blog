@@ -24,7 +24,7 @@ export default function Header() {
                         <a href="/article">规范</a>
                         <a href="/talk">耳语</a>
                         <a href="/video">视频</a>
-                        <a href="/code">代码</a>
+                        <a href="/codeproblem">代码</a>
                         {/* <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=${RESPONSE_TYPE}`}>spotify</a> */}
                     </nav>
                     {!isLogin ?
@@ -46,7 +46,7 @@ export default function Header() {
 
                         :
                         <div className="items-center justify-end md:flex md:flex-1 lg:w-0">
-                            <a className="ml-8 px-4 py-2 bg-indigo-600 rounded-md text-white text-base">个人</a>
+                            <a className="ml-8 px-4 py-2 bg-indigo-600 rounded-md text-white text-base" href="/secret">个人</a>
                             <div className="ml-10" onClick={() => setMode()}>
                                 {!darkMode ?
                                     <svg width="1.8em" height="1.8em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">

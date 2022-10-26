@@ -1,5 +1,5 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { BUTTON_CLICK, SAVE_TRANSLATE, SET_PERSON } from "../actions/actions";
+import { BUTTON_CLICK, SAVE_TRANSLATE, SET_PERSON, SET_CODE } from "../actions/actions";
 import { SET_ID } from '../actions/actions'
 function click(
     state = {},
@@ -51,8 +51,25 @@ function translate(
     }
 }
 
+
+function code(
+    state = {
+        value: "",
+        tag: "",
+        info: ""
+    },
+    action
+) {
+    switch (action.type) {
+        case SET_CODE:
+            return Object.assign({},action.payload)
+        default: 
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
-    click, id, person, translate
+    click, id, person, translate, code
 })
 
 export default rootReducer
