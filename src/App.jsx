@@ -19,7 +19,7 @@ import CodeProblem from './views/code/CodeProblem';
 import Handler from './views/handler/handler';
 export default function App() {
     return (
-        <div className='dark:text-light-100 dark:bg-dark-900'>
+        <div className='dark:text-light-100   dark:bg-dark-900'>
             <Header />
             <BrowserRouter>
                 <Routes>
