@@ -8,7 +8,7 @@ export default function CodeProblem() {
     useEffect(() => {
         getCode()
             .then((res) => {
-                console.log(res.data.data);
+                console.log(res.data.data)
                 setList(res.data.data)
             })
     }, [])
