@@ -9,7 +9,7 @@ export default function CodeProblem() {
         getCode()
             .then((res) => {
                 console.log(res.data.data);
-                setList(res.data.data)
+                setList(res.data.data);
             })
     }, [])
     const toCode = (id) => {
